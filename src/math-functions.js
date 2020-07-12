@@ -12,7 +12,7 @@ example and uses the values that were input into the function:
 */
 
 export function sum(a, b) {
-    const sumTotal = (Number(a + b));
+    const sumTotal = a + b;
     const sumString = `The sum of ${a} and ${b} is ${sumTotal}.`;
     const myArray = [];
     myArray.push(sumTotal, sumString);
@@ -30,7 +30,7 @@ Write a function called multiply() that takes in two numbers as arguments and re
 */
 
 export function multiply(a, b) {
-    const multTotal = (Number(a * b));
+    const multTotal = a * b;
     const multString = `The product of ${a} and ${b} is ${multTotal}.`;
     const myArray = [];
     myArray.push(multTotal, multString);
@@ -59,7 +59,12 @@ how to do this. However, you may continue to use the + operator for string conca
 */
 
 export function sumAndMultiplyThreeNumbers(a, b, c) { //eslint-disable-line
-
+    const sum1 = sum(a, b)[0];
+    const sumResult = sum(sum1, c);
+    const mult1 = multiply(a, b)[0];
+    const multResult = multiply(mult1, c);
+    let myArray = [sumResult[0], multResult[0], `${a} and ${b} and ${c} sum to ${sumResult[0]}.`, `The product of ${a} and ${b} and ${c} is ${multResult[0]}.`];
+    return myArray;
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
@@ -81,7 +86,12 @@ to use the + operator for string concatenation.
 */
 
 export function sumArrayWithThreeNumbers(sumArr) {
-
+    let mySum = 0;
+    for(let i = 0; i <= 2; i++) {
+        mySum = sum(sumArr[i], mySum)[0];
+    }
+    const stringOfSums = `${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and ${mySum} is their sum.`;
+    return [mySum, stringOfSums];
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
@@ -104,7 +114,12 @@ you may continue to use the + operator for string concatenation.
 */
 
 export function multiplyArrayWithThreeNumbers(multArr) { //eslint-disable-line
-
+    let myProduct = 1;
+    for(let i = 0; i <= 2; i++) {
+        myProduct = multiply(multArr[i], myProduct)[0];
+    }
+    const stringOfProducts = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${myProduct}.`;
+    return [myProduct, stringOfProducts];
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
