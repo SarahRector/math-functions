@@ -114,6 +114,14 @@ This function should handle an array containing three elements. However,
 you may continue to use the + operator for string concatenation.
 */
 
+export function multiplyArrayWithThreeNumbers(multArr) { //eslint-disable-line
+    let myProduct = 1;
+    for(let i = 0; i <= 2; i++) {
+        myProduct = multiply(multArr[i], myProduct)[0];
+    }
+    const stringOfProducts = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${myProduct}.`;
+    return [myProduct, stringOfProducts];
+}
 
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
@@ -132,7 +140,14 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 
 This function should be dynamic, accepting an array of any length.
 */
-
+export function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+    let dynamicProduct = 1;
+    for(let i = 0; i < dynamicArray.length; i++) {
+        dynamicProduct = multiply(dynamicArray[i], dynamicProduct)[0];
+    }
+    const productString = `The numbers ${dynamicArray} have a product of ${dynamicProduct}.`;
+    return [dynamicProduct, productString];
+}
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 // You're done! Submit the link to the repo following the instructions in Canvas.
